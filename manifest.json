@@ -1,0 +1,11 @@
+{
+  "name": "JIRA Depdency Chart",
+  "description": "Generate a dependency chart from a JIRA search",
+  "version": "0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  }
+}
