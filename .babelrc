@@ -1,0 +1,5 @@
+{
+  "presets": ["react-app", "env"],
+  "plugins": ["react-hot-loader/babel", "transform-class-properties"],
+  "sourceMaps": "inline"
+}
