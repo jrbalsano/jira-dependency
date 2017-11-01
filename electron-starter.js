@@ -1,4 +1,4 @@
-import electron, { app, BrowserWindow } from 'electron';
+import electron, { app, BrowserWindow, shell } from 'electron';
 import path from 'path'
 import url from 'url';
 import { enableLiveReload } from 'electron-compile';
@@ -23,6 +23,11 @@ function createWindow () {
 
     // Open the DevTools.
     win.webContents.openDevTools()
+    win.webContents.on('new-window', function(event, url) {
+        event.preventDefault();
+        shell.openExternal(url);
+    });
+
 
     // Emitted when the window is closed.
     win.on('closed', () => {

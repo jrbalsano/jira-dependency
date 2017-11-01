@@ -15,14 +15,16 @@ class IssueDependencyChart extends Component {
     const graph = new dagre.graphlib.Graph()
       .setGraph({})
       .setDefaultEdgeLabel(() => { return {}; });
-    const { issueTree, issuesById } = this.props;
+    const { issueTree, issuesById, jiraUrl } = this.props;
 
     Object.keys(issuesById).forEach(issueId => {
       const issue = issuesById[issueId];
+      const url = `${jiraUrl}/browse/${issue.key}`;
       graph.setNode(issueId, {
         rx: 5,
         ry: 5,
-        label: issue.key,
+        label: `<a href="${url}" target="_blank">${issue.key}</a>`,
+        labelType: 'html'
       });
     });
 

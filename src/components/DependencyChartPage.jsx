@@ -97,7 +97,7 @@ class DependencyChartPage extends Component {
 
   render() {
     const { jiraService } = this.props;
-    const { loading, settings } = this.state;
+    const { loading, settings, issueTree, issuesById } = this.state;
     if (loading) {
       return 'Loading...';
     }
@@ -105,7 +105,7 @@ class DependencyChartPage extends Component {
     return (
       <div className="dependency-chart-layout">
         <JiraSearchForm jiraService={jiraService} settings={settings} onNewIssues={this.onNewIssues} />
-        <IssueDependencyChart {...this.state} />
+        <IssueDependencyChart issueTree={issueTree} issuesById={issuesById} jiraUrl={jiraService.getJiraUrl()} />
       </div>
     );
   }

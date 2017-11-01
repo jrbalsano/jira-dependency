@@ -32,6 +32,10 @@ function JiraService({ baseUrl, username, password }) {
       });
   };
 
+  this.getJiraUrl = function getJiraUrl() {
+    return baseUrl;
+  }
+
   this.getIssue = function getIssue({ issue }) {
     return _fetch({
       path: `/rest/api/2/issue/${issue}`
