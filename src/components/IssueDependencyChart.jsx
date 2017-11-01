@@ -38,7 +38,10 @@ class IssueDependencyChart extends Component {
     const renderer = new dagre.render();
 
     const svg = d3.select(node);
-    const inner = svg.append('g');
+    svg.selectAll('g').data([0])
+      .enter()
+      .append('g');
+    const inner = svg.select('g');
     const zoom = d3.behavior.zoom().on('zoom', function() {
       inner.attr('transform', `translate(${currentEvent.translate})scale(${currentEvent.scale})`);
     });
